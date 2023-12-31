@@ -75,6 +75,7 @@ class BoardConsumer(AsyncJsonWebsocketConsumer):
                 },
             )
 
+
     async def broadcast_changes(self, event):
         if event.get("session_id") == self.session_id:
             return
