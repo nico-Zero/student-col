@@ -1,0 +1,14 @@
+{% extends "index.html" %} 
+{% block body %}
+<body>
+	<form id="whiteboard_form" method="POST">
+		{% csrf_token %} 
+        {{ generate_whiteboard_form.as_p }}
+		<input type="submit" value="Generate" />
+	</form>
+
+	{% if generated_whiteboard_url %}
+	<a href="{{generated_whiteboard_url}}">{{generated_whiteboard_url}}</a>
+	{% endif %}
+</body>
+{% endblock body %}

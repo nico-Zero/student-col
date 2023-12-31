@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "student-collaboration"
+version = "0.1.0"
+description = ""
+authors = ["nico-Zero <zandaxheart955@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0"
+django-extensions = "^3.2.3"
+channels = {extras = ["daphne"], version = "^4.0.0"}
+channels-redis = "^4.1.0"
+django-mysql = "^4.12.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.19.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
