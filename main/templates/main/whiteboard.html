@@ -3,12 +3,19 @@
 
 {% block body %}
 <body style="background-color: #f1f1f1">
-    <canvas id="whiteboard"  width="800" height="800" style= "background-color: white;"></canvas>
+    <canvas id="whiteboard" style= "background-color: white;"></canvas>
+
     <script>
         window.boardID = "{{board_id}}";
+        
+        var canvas = document.getElementById("whiteboard");
+
+        canvas.height = window.innerHeight - 150;
+        canvas.width = window.innerWidth;
+        
     </script>
+
     <script src="{% static 'web/index.js' %}" ></script>
-    
     <p>Online:- <span id="show_users_count">hi</span></p>
     
     {% if user.pk == host_pk %}

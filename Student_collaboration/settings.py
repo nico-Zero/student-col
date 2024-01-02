@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # 3rd party apps
     "daphne",
+    "ckeditor",
+    "bootstrap5",
     "django_extensions",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -43,6 +45,9 @@ INSTALLED_APPS = [
     # my apps
     "main",
 ]
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -130,9 +135,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_ROOT = (BASE_DIR / "static")
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
     BASE_DIR / "web" / "build",
 ]
 
@@ -140,3 +145,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

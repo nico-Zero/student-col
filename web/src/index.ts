@@ -172,11 +172,17 @@ class Board {
 		context.stroke();
 		context.closePath();
 	};
+	onResize = () => {
+		this.element.width = window.innerWidth;
+		this.element.height = window.innerHeight - 150; 
+		this.draw()
+	}
 	run = () => {
 		this.element.addEventListener("mousedown", this.onMouseDown);
 		this.element.addEventListener("mouseup", this.onMouseUp);
 		this.element.addEventListener("mousemove", this.onMouseMove);
 		this.element.addEventListener("mouseleave", this.onMouseUp);
+		window.addEventListener("resize", this.onResize);
 		this.draw();
 	};
 }

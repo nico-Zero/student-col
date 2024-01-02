@@ -1,10 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
-import uuid
+from ckeditor.fields import RichTextField
 from django_mysql.models.fields.lists import ListCharField
+import uuid
 
 # Create your models here.
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    about = RichTextField(default="No About...")
+    avatar = models.ImageField(upload_to="avatars", default="no_picture.png")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.username.capitalize()
 
 class Board(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
